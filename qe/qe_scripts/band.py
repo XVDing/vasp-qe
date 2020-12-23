@@ -214,7 +214,7 @@ def manipulate_bandplot():
           "band, scf and high_kpoint_path are band.dat and scf.out.")
     print("(1) yes")
     print("(2) no, let me re-define")
-    initial_input = int(input("Input number"))
+    initial_input = int(input("Input number:"))
     if initial_input == 1:
         filename = ["relax.out", "band", "band.dat", "scf.out"]
         print("(1) energy range")
