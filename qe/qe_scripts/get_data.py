@@ -9,11 +9,6 @@ python3: get_data.py
 import numpy as np
 from matplotlib import pyplot as plt
 import math
-import sys, os
-curPath = os.path.abspath(os.path.dirname(__file__))
-sys.path.append(curPath)
-
-
 
 # get the spin information from INCAR file
 def get_ispin(filename = "band"):
