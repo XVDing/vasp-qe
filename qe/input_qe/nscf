@@ -1,0 +1,38 @@
+&CONTROL
+    calculation='nscf'
+    prefix='pwscf'
+    nstep = 300
+    restart_mode='from_scratch'
+    pseudo_dir='/home/c318/software/QE/psl/sssp/SSSP'
+	outdir='./tmp'
+	verbosity='low'
+    tprnfor=.true.
+	tstress=.true.
+	etot_conv_thr=1.0d-5              ! 优化时，相邻两个离子步总能的收敛阈值.
+	forc_conv_thr=1.0d-5              ！优化时，各个离子受力的收敛阈值.
+/
+&SYSTEM
+    ibrav       = 0
+    nat         = 18
+    ntyp        = 1
+    ecutwfc     =  50
+    ecutrho     =  600
+    occupations = 'smearing'          ！半导体或者绝缘体使用fixed.
+    smearing    = 'gaussian'
+    degauss     =  0.05
+/
+&ELECTRONS
+    conv_thr         =  1.0d-10       ! 电子的能量的收敛阈值
+    electron_maxstep = 300
+    mixing_beta      =  0.7D0
+    mixing_mode = 'plain'
+    diagonalization = 'david'
+/
+&IONS
+    ion_dynamics='bfgs'
+/
+&CELL   
+    cell_dynamics = 'bfgs'                     
+    press_conv_thr = 0.1              ! 对于变胞优化，cell受压强的收敛阈值.
+/
+
