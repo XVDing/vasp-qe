@@ -11,21 +11,9 @@ import os, sys
 curPath = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(curPath)
 
-import qe_scripts.band as bd
-import qe_scripts.get_data
-import  qe_scripts.qe_to_poscar as qp
-import input_qe.qe_input as initial
-
-
 file_path = curPath + "/input_qe"
 
 # main control
-print(" ********************************************************************")
-print(" *This is a code used to simplify the QE calculation, written by **")
-print(" *****************           XY Ding                *****************")
-print(" ********************************************************************")
-print(" *************          (^o^)GOOD LUCK!(^o^)           **************")
-print("\n")
 print(" *********  Pre and post-preparation for QE calculation  ***********")
 print(" **********  eg:(1) pre-processing: input template    ***************")
 print(" **********  eg:(2) post-processing: band plot    *******************")
@@ -36,13 +24,16 @@ print(" (3) Data processing for Quantum Espresso  calculation:eg. band and dos")
 seltct_qe = int(input("Input a number: "))
 print("\n")
 if seltct_qe == 1:
+    from .input_qe import qe_input as initial
     print("********  Incar template for QE calculation !  *******")
     initial.manipulate_qe()
 elif seltct_qe == 2:
+    from .qe_scripts import qe_to_poscar as qp
     print("Notation: You must have a input file of relaxation called")
     print("********************** relax ********************* ")
     qp.manipulate()
 elif seltct_qe == 3:
+    from .qe_scripts import band as bd
     print("********  Data processing for QE calculation: band and dos ********")
     print("**** Notation: You must have a input file of relaxation called ****")
     print("****************************** relax ****************************** ")

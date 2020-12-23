@@ -10,6 +10,10 @@ import numpy as np
 from matplotlib import pyplot as plt
 import math
 import sys, os
+curPath = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(curPath)
+
+
 
 # get the spin information from INCAR file
 def get_ispin(filename = "band"):
@@ -253,7 +257,7 @@ def trans_qe_pos(filename = "relax.out"):
     pos.close()
 
 # transform the high-symmetry path of QE to KPATH
-def trans_qe_kpath(filename = "band"):
+def trans_qe_kpath(filename='band'):
     data = open(filename, 'r')
     band = data.readlines()
     num_high = 0

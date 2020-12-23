@@ -11,17 +11,10 @@ import os, sys
 curPath = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(curPath)
 
-import scripts.initial
-
 file_path = curPath + "/INCAR_templates"
 
+
 # main control
-print(" ********************************************************************")
-print(" *This is a code used to simplify the vasp calculation, written by **")
-print(" *****************           XY Ding                *****************")
-print(" ********************************************************************")
-print(" *************          (^o^)GOOD LUCK!(^o^)           **************")
-print("\n")
 print(" *********  Pre and post-preparation for vasp calculation  **********")
 print(" **********  eg:(1) pre-processing: incar template    ***************")
 print(" **********  eg:(2) post-processing: band plot    *******************")
@@ -64,21 +57,21 @@ elif seltct_vasp == 2:
     print("(5) Optics properties")
     process_num = int(input("Input a Number: "))
     if process_num == 1:
-        import scripts.band as bd
+        from .scripts import band as bd
         print(" ************************** Enter band ploting ****************************")
         bd.manipulate_bandplot()
     elif process_num == 2:
-        import scripts.hse06 as hse
+        from .scripts import hse06 as hse
         print(" ************************** Enter HSE06 ploting ****************************")
         hse.manipulate_bandplot()
     elif process_num == 3:
         print(" ****************************** waitting ***********************************")
     elif process_num == 4:
-        import scripts.dos as dos
+        from .scripts import dos as dos
         print(" ************************** Enter DOS ploting ******************************")
         dos._manipulate_dos()
     elif process_num == 5:
-        import scripts.optics as op
+        from .scripts import optics as op
         print(" ******************** Enter optics properties ploting **********************")
         os.system("cp " + curPath + "/scripts/optics.sh ./")
         os.system("bash optics.sh")
@@ -96,10 +89,10 @@ elif seltct_vasp == 3:
         print("(2) process the results")
         in_p = int(input("Input a number: "))
         if in_p == 1:
-            import scripts.deform as deform
+            from .scripts import deform as deform
             deform.manipulate_deform()
         elif in_p == 2:
-            import scripts.elastic_fitting as ef
+            from .scripts import elastic_fitting as ef
             ef.output_energy()
             ef.energy_strain_plot()
             ef.energy_strain_fitting_plot()
@@ -111,10 +104,10 @@ elif seltct_vasp == 3:
         print("(2) process the results")
         in_s = int(input("Input a number: "))
         if in_s == 1:
-            import scripts.es as es
+            from .scripts import es as es
             es.manipulate_deform()
         elif in_s == 2:
-            import scripts.es as es
+            from .scripts import es as es
             es.output_es()
             es.plot_es()
         else:
@@ -125,7 +118,7 @@ elif seltct_vasp == 4:
     print("(2) Surface states      ")
     init = int(input("Input a number: "))
     if init == 1:
-        import scripts.nihe as nihe
+        from .scripts import nihe as nihe
         nihe.plot_band()
     elif init == 2:
         print("waiting !")

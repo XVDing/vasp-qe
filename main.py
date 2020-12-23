@@ -21,20 +21,19 @@ print(" *****************           XY Ding                *****************")
 print(" ********************************************************************")
 print(" *************          (^o^)GOOD LUCK!(^o^)           **************")
 print("\n")
-print(" *********  Pre and post-preparation for VASP&QE calculation  **********")
-print(" **********  eg:(1) pre-processing: incar template    ***************")
-print(" **********  eg:(2) post-processing: band plot    *******************")
+print(" *********  Pre and post-preparation for VASP&QE calculation  *******")
+print(" ***********************   eg:(1) VASP    ***************************")
+print(" ******************  eg:(2) Quantum Espresso    *********************")
 print(" ********************************************************************")
 print(" (1) VASP")
 print(" (2) Quantum Espresso")
 seltct = int(input("Input a number: "))
 print("\n")
 if seltct == 1:
-    print("********  Entering VASP calculation !  *******")
+    print("**************  Entering VASP calculation !  *************")
     import vasp.vasp
-
 elif seltct == 2:
-    print("********  Entering VASP calculation !  *******")
+    print("********  Entering Quantum Espresso calculation !  *******")
     import qe.qe
 else:
     print("You are input a wrong number !")
