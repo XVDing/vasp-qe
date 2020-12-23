@@ -4,12 +4,9 @@ Created on 10:21 14-10-2020
 
 @author: XY Ding
 mail to: dxy_vasp@163.com
-python3: main.py
+python3: qe.py
 """
-import numpy as np
-from matplotlib import pyplot as plt
-import math
-# import other python scripts
+
 import os, sys
 curPath = os.path.abspath(os.path.dirname(__file__))
 sys.path.append(curPath)
