@@ -67,7 +67,7 @@ def get_volume():
     return float(volume[-1])/pos[-1]
 
 def output_es():
-    delta_x = [float(i * 0.02) for i in range(-10, 11)]
+    delta_x = [float(i * 0.01) for i in range(-10, 11)]
     energy = []
     volume = []
     for i in range(0, len(delta_x)):
@@ -85,7 +85,7 @@ def output_es():
 # manipulate deform
 def manipulate_deform():
     os.system("cp POSCAR POSCAR_orig")
-    delta_x = [float(i * 0.02) for i in range(-10, 11)]
+    delta_x = [float(i * 0.01) for i in range(-10, 11)]
     for i in range(0, len(delta_x)):
         deform(delta_x[i], "POSCAR_orig")
         os.system("mkdir " + "strain" + str(delta_x[i]))
